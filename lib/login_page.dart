@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jobsheet08/first_screen.dart';
+import 'package:jobsheet08/register_page.dart';
 import 'package:jobsheet08/sign_in.dart';
 
 class LoginPage extends StatefulWidget {
@@ -18,14 +19,15 @@ class _LoginPageState extends State<LoginPage> {
       body: Container(
         color: Colors.white,
         child: Center(
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.center,
+          child: ListView(
+            shrinkWrap: true,
+            padding: EdgeInsets.only(left: 24.0, right: 24.0),
             children: <Widget>[
-              FlutterLogo(size: 150),
-              SizedBox(height: 50),
+              FlutterLogo(size: 100),
+              SizedBox(height: 48),
               _formLogin(),
               _signInButton(),
+              _register(),
             ],
           ),
         ),
@@ -129,28 +131,17 @@ class _LoginPageState extends State<LoginPage> {
         ],
       ),
     );
-    SizedBox(height: 20);
-    Row(
-      children: <Widget>[
-        Expanded(
-          child: Divider(
-            thickness: 1,
-            color: Colors.black54,
-          ),
-        ),
-        SizedBox(width: 20),
-        Text(
-          'OR',
-          style: TextStyle(color: Colors.black54),
-        ),
-        SizedBox(width: 20),
-        Expanded(
-          child: Divider(
-            thickness: 1,
-            color: Colors.black54,
-          ),
-        ),
-      ],
+  }
+
+  Widget _register() {
+    return FlatButton(
+      child: Text(
+        'Don\’t have account? Register here',
+        style: TextStyle(color: Colors.black54),
+      ),
+      onPressed: () async {
+        Navigator.of(context).pushNamed(RegisterPage.tag);
+      },
     );
   }
 

@@ -7,6 +7,7 @@ final GoogleSignIn googleSignIn = GoogleSignIn();
 String name;
 String email;
 String imageUrl;
+
 Future<String> signInWithGoogle() async {
   await Firebase.initializeApp();
   final GoogleSignInAccount googleSignInAccount = await googleSignIn.signIn();
@@ -30,6 +31,63 @@ Future<String> signInWithGoogle() async {
 // Only taking the first part of the name, i.e., First Name
     if (name.contains(" ")) {
       name = name.substring(0, name.indexOf(" "));
+    }
+    assert(!user.isAnonymous);
+    assert(await user.getIdToken() != null);
+    final User currentUser = _auth.currentUser;
+    assert(user.uid == currentUser.uid);
+    print('signInWithGoogle succeeded: $user');
+    return '$user';
+  }
+  return null;
+}
+
+Future<String> signInWithEmailAndPassword(String username, String pass) async {
+  await Firebase.initializeApp();
+
+  UserCredential userAuth =
+      (await _auth.signInWithEmailAndPassword(email: username, password: pass));
+  User user = userAuth.user;
+
+  if (user != null) {
+    // Checking if email and name is null
+    assert(user.email != null);
+
+    name = user.email;
+    email = user.email;
+    imageUrl = user.email;
+    // Only taking the first part of the name, i.e., First Name
+    if (name.contains("@")) {
+      name = name.substring(0, name.indexOf("@"));
+    }
+    assert(!user.isAnonymous);
+    assert(await user.getIdToken() != null);
+    final User currentUser = _auth.currentUser;
+    assert(user.uid == currentUser.uid);
+    print('signInWithGoogle succeeded: $user');
+    return '$user';
+  }
+  return null;
+}
+
+Future<String> createUserWithEmailAndPassword(
+    String username, String pass) async {
+  await Firebase.initializeApp();
+
+  UserCredential userAuth = (await _auth.createUserWithEmailAndPassword(
+      email: username, password: pass));
+  User user = userAuth.user;
+
+  if (user != null) {
+    // Checking if email and name is null
+    assert(user.email != null);
+
+    name = user.email;
+    email = user.email;
+    imageUrl = user.email;
+    // Only taking the first part of the name, i.e., First Name
+    if (name.contains("@")) {
+      name = name.substring(0, name.indexOf("@"));
     }
     assert(!user.isAnonymous);
     assert(await user.getIdToken() != null);
