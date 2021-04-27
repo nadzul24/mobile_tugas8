@@ -1,6 +1,34 @@
-# jobsheet08
+# Firebase Authentication
 
 A new Flutter project.
+
+### Login Page
+
+Di halaman ini disediakan form untuk login melalui email dan password. Disediakan pula sign in dari google, dan jika belum mempunyai akun bisa registrasi melalui email terlebih dahulu.
+
+![alt text](https://github.com/nadzul24/mobile_tugas8/blob/main/Capture_1.jpeg)
+
+### Register Page
+
+Berikut adalah halaman untuk registrasi. Anda bisa memasukkan email dan password sesuai keinginan untuk membuat akun
+
+![alt text](https://github.com/nadzul24/mobile_tugas8/blob/main/Capture_2.jpeg)
+
+### Berhasil Registrasi melalui Email
+
+jika anda berhasil melakukan registrasi, maka akan keluar halaman seperti dibawah ini
+
+![alt text](https://github.com/nadzul24/mobile_tugas8/blob/main/Capture_3.jpeg)
+
+### Sign in with Google
+
+![alt text](https://github.com/nadzul24/mobile_tugas8/blob/main/Capture_4.jpeg)
+![alt text](https://github.com/nadzul24/mobile_tugas8/blob/main/Capture_5.jpeg)
+
+### Daftar user yang berhasil melakukan autentikasi
+
+![alt text](https://github.com/nadzul24/mobile_tugas8/blob/main/Capture_6.JPG)
+
 
 ## Getting Started
 
